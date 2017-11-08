@@ -17,28 +17,62 @@
 <body>
    
     <!-- 左边侧边栏 -->
-    <div class="lf_aside">
+    <div class="lf_aside login-bg">
         <div class="logo">
-            <a href="index.html">
+            <a href="index.html" class="text-center">
                 乐淘后台
             </a>
         </div>
-        <div class="user"></div>
-        <div class="nav"></div>
+        <div class="user clearfix">
+            <img src="./images/default.png" alt="" class="pull-left">
+            <p class="pull-right">超级管理员</p>
+        </div>
+        <div class="nav">
+            <ul>
+                <li>
+                    <a href="javascript:;" class="userManage">
+                        <span class="glyphicon glyphicon-user"></span>
+                        用户管理</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="userManage">
+                        <span class="glyphicon glyphicon-list"></span>
+                        分类管理
+                    </a>
+                    <div class="child">
+                        <a href="javascript:;" class="first">一级分类</a>
+                        <a href="javascript:;" class="second">二级分类</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:;" class="userManage">
+                        <span class="glyphicon glyphicon-tags"></span>
+                        商品管理</a>
+                </li>
+            </ul>
+        </div>
     </div>
     <!-- 右边内容 -->
-    <div class="rt_main"></div>
+    <div class="rt_main">
+        <div class="topbar">
+            <a href="javascript:;" class="menu pull-left">
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </a>
+            <a href="javascript:;" class="loginout pull-right">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </div>
+    </div>
 
 
 
 
     <script src="./lib/jquery/jquery.min.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-    <!-- 引入表单校验的插件 -->
-    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+
     <!-- 引入进度条的插件 -->
     <script src="./lib/nprogress/nprogress.js"></script>
-    <script src="./js/login.js"></script>
+
     <!-- 引入公共的js -->
     <script src="./js/commen.js"></script>
     
