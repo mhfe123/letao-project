@@ -10,4 +10,6 @@ $(function(){
     $(document).ajaxStop(function(){
         NProgress.done();
     })
+
+    // 首页侧边栏显示与隐藏功能
 });
