@@ -36,7 +36,7 @@ $(function(){
     })
 
     // 退出功能
-    $('.loginout').on('click',function(){
+    $('#loginoutMD').on('click',function(){
         $('.modal').modal('show');
 
         //当点击退出的时候给退出注册单击事件,清空登录信息并跳转登录页面
