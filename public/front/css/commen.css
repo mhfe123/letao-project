@@ -1,0 +1,113 @@
+
+html,body {
+    height: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.lt-container {
+    width: 100%;
+    height: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+    position: relative;
+    padding: 45px 0 55px;
+}
+/* 头部样式 */
+.lt-header {
+    width: 100%;
+    height: 45px;
+    background-color: #069;
+    position: absolute;
+    top: 0;
+}
+
+.lt-header .lf-icon,.lt-header .rt-icon {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    position: absolute;
+    color: #fff;
+}
+.lt-header h4 {
+    text-align: center;
+    line-height: 45px;
+    margin: 0;
+    color: #fff;
+    font-weight: 400;
+}
+.lt-header .lf-icon {
+    left: 0;
+    top: 0;
+}
+.lt-header .rt-icon {
+    right: 0;
+    top: 0;
+}
+/* 底部样式 */
+.lt-footer {
+    width: 100%;
+    height: 55px;
+    background-color: #069;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+}
+.lt-footer ul {
+    width: 100%;
+    height: 100%;
+}
+.lt-footer ul li {
+    float: left;
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+.lt-footer ul li a {
+    color: #fff;
+}
+.lt-footer ul li a p {
+    color: #fff;
+    font-size: 12px;
+}
+.lt-footer ul li.now a,.lt-footer ul li.now a p {
+    color: darkorange
+}
+/* 内容样式 */
+.lt-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+/* 商品样式 */
+.lt-product {
+    padding: 10px;
+}
+.lt-product .item {
+    border: 1px solid #ccc;
+    float: left;
+    width: 48%;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.lt-product .item:nth-child(odd) {
+    margin-right: 4%;
+}
+.lt-product .item .price {
+    color: red;
+}
+.lt-product .item .oldPrice {
+    text-decoration: line-through;
+}
