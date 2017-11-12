@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>乐淘管理系统-分类管理</title>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
+  <link rel="stylesheet" href="lib/nprogress/nprogress.css">
+  <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+
+<div class="lt_aside">
+  <div class="brand">
+    <a href="index.html">黑马12期</a>
+  </div>
+  <div class="user">
+    <img src="images/default.png" alt="">
+    <p>超级管理员</p>
+  </div>
+  <div class="nav">
+    <ul>
+      <li>
+        <a href="user.html">
+          <span class="glyphicon glyphicon-user"></span>
+          用户管理
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <span class="glyphicon glyphicon-list"></span>
+          分类管理
+        </a>
+        <div class="child" style="display: block;">
+          <a href="first.html">一级分类</a>
+          <a class="now" href="second.html">二级分类</a>
+        </div>
+
+      </li>
+      <li>
+        <a href="product.html">
+          <span class="glyphicon glyphicon-tags"></span>
+          商品管理
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="lt_main">
+
+  <!--顶部通栏-->
+  <div class="topbar">
+    <a class="pull-left btn_menu" href="javascript:;"><span class="glyphicon glyphicon-align-justify"></span></a>
+    <a class=" pull-right btn_logout" href="javascript:;"><span class="glyphicon glyphicon-log-out"></span></a>
+  </div>
+
+  <div class="container-fluid">
+    <!--面包屑导航-->
+    <ol class="breadcrumb">
+      <li><a href="#">管理系统</a></li>
+      <li><a href="#">分类管理</a></li>
+      <li class="active">二级分类</li>
+    </ol>
+
+
+    <!--内容区域-->
+    <div class="lt_content">
+
+      <button class="btn btn-default mb_20 btn_add">添加分类</button>
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <td width="10%">序号</td>
+          <td width="30%">一级分类名称</td>
+          <td width="30%">二级分类名称</td>
+          <td width="30%">二级分类LOGO</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!--挖个坑-->
+        </tbody>
+      </table>
+
+      <div class="text-right">
+        <ul id="paginator"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--role aria sr-only: 屏幕阅读器使用-->
+<div class="modal fade" tabindex="-1" id="logoutModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ><span>&times;</span></button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-danger">
+          <span class="glyphicon glyphicon-info-sign"></span>
+          您确定要退出后台管理系统吗？
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary btn_confirm">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" id="addModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ><span>&times;</span></button>
+        <h4 class="modal-title">添加分类</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form">
+          <div class="form-group">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="dropdown-text">请选择一级分类</span>
+                <span class="caret"></span>
+                <input type="hidden" id="categoryId" name="categoryId">
+              </button>
+              <ul class="dropdown-menu">
+                <!--挖个坑-->
+              </ul>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类">
+          </div>
+          <div class="form-group">
+            <div class="upload_box">
+              <button class="btn btn-default">上传图片</button>
+              <!--
+                1. type:file
+                2. 必须指定name属性，因为后台通过这个name属性去获取图片
+                3. 必须data-url：指定图片上传的地址
+              -->
+              <input type="file" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic" class="btn btn-default">
+            </div>
+          </div>
+          <div class="form-group img_box">
+            <img src="images/none.png" width="100" height="100" alt="">
+            <input type="hidden" name="brandLogo" id="brandLogo">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" form="form" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit" form="form" class="btn btn-primary btn_confirm">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/html" id="tpl">
+  {{each rows v i}}
+  <tr>
+    <td>{{(page-1)*size+i+1}}</td>
+    <td>{{v.categoryName}}</td>
+    <td>{{v.brandName}}</td>
+    <td><img src="{{v.brandLogo?v.brandLogo:'images/none.png'}}" width="50" height="50" alt=""></td>
+  </tr>
+  {{/each}}
+</script>
+
+<script type="text/html" id="tpl2">
+  {{each rows v i}}
+  <li><a href="javascript:;" data-id="{{v.id}}">{{v.categoryName}}</a></li>
+  {{/each}}
+</script>
+
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/echarts/echarts.min.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="js/common.js"></script>
+<script src="js/second.js"></script>
+</body>
+</html>
