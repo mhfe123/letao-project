@@ -1,0 +1,20 @@
+.searchHistory {
+    padding: 10px;
+    font-size: 12px;
+}
+.searchHistory .title span {
+    color: #666;
+    height: 30px;
+    line-height: 30px;
+}
+.searchHistory .historyList {
+    border: 1px dashed #ccc;
+}
+.searchHistory .historyList li {
+    padding-left: 10px;
+    line-height: 24px;
+    border-bottom: 1px dashed #ccc;
+}
+.searchHistory .historyList li:last-of-type {
+    border-bottom: none;
+}
