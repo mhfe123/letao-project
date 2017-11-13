@@ -30,24 +30,7 @@
                     </div>
                 <!-- 历史记录 -->
                     <div class="searchHistory">
-                        <div class="title mui-clearfix">
-                            <span class="mui-pull-left">搜索历史</span>
-                            <span class="mui-pull-right fa fa-trash btn_empty">清空记录</span>
-                        </div>
-                        <ul class="historyList">
-                            <li class="mui-clearfix">
-                                <a href="#" class="mui-pull-left">12</a>
-                                <span class="mui-icon mui-icon-closeempty mui-pull-right"></span>
-                            </li>
-                            <li class="mui-clearfix">
-                                <a href="#" class="mui-pull-left">12</a>
-                                <span class="mui-icon mui-icon-closeempty mui-pull-right"></span>
-                            </li>
-                            <li class="mui-clearfix">
-                                <a href="#" class="mui-pull-left">12</a>
-                                <span class="mui-icon mui-icon-closeempty mui-pull-right"></span>
-                            </li>
-                        </ul>
+                        
                     </div>
                 
                 </div>
@@ -83,9 +66,31 @@
             </ul>
         </div>
     </div>
-    
+    <script type="text/html" id="tmp">
+        {{if arr.length === 0}}
+        <p>暂无搜索记录</p>
+        {{/if}}
+
+        {{if arr.length > 0}}
+        <div class="title mui-clearfix">
+            <span class="mui-pull-left">搜索历史</span>
+            <span class="mui-pull-right fa fa-trash btn_empty">清空记录</span>
+        </div>
+        <ul class="historyList">
+            {{each arr v i}}
+            <li class="mui-clearfix">
+                <a href="#" class="mui-pull-left">{{v}}</a>
+                <span class="mui-icon mui-icon-closeempty mui-pull-right btn-delete" data-index="{{i}}"></span>
+            </li>
+            {{/each}}
+        </ul>
+        {{/if}}
+    </script>
     <script src="./lib/mui/js/mui.min.js"></script>
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
     <script src="./js/commen.js"></script>
+    <script src="./js/search.js"></script>
 
 </body>
 </html>
