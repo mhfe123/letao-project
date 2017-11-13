@@ -26,5 +26,20 @@
     height: 100%;
     overflow: hidden;
     position: relative;
-    background-color: blue;
+}
+.lt-category-r li {
+    float: left;
+    text-align: center;
+    width: 33.33%;
+}
+.lt-category-r .text-tips {
+    padding: 10px;
+}
+.lt-category-r li a {
+    display: block;
+}
+.lt-category-r li img {
+    width: 62px;
+    height: 62px;
+    margin: 0 auto;
 }
