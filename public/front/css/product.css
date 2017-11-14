@@ -1,0 +1,54 @@
+.proname {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+.proname h3 {
+    font-size: 17px;
+}
+.price {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+}
+.price .new {
+    font-size: 20px;
+    color: red;
+    margin-right: 5px;
+}
+.price .old {
+    font-size: 12px;
+    color: #666;
+    text-decoration: line-through;
+}
+.size {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+.size span {
+    font-size: 12px;
+    border: 1px solid #ccc;
+    padding: 3px;
+    background-color: #f5f5f5;
+    line-height: 30px;
+}
+.num {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+.info {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+/* 底部 */
+.goBuyCar {
+    height: 55px;
+    background-color: #f5f5f5;
+    line-height: 55px;
+    padding-left: 20px;
+    overflow: hidden;
+}
+.goBuyCar a {
+    font-size: 16px;
+}
+.goBuyCar .btns {
+    padding: 10px;
+}
