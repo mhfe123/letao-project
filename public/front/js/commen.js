@@ -11,3 +11,34 @@ var gallery = mui('.mui-slider');
 gallery.slider({
   interval:1000//自动轮播周期，若为0则不自动播放，默认为0；
 });
+
+
+// 封装一个对象tools用来储存一些自己封装的工具
+var tools = {
+  getParamObj:function(){
+    // dom中有一个内置对象,location对应了浏览器的地址栏
+    // 通过location.search可以获取地址栏的参数
+    var search = location.search;
+    // 如果地址栏中有中文,需要对地址进行解码,decodeURI方法
+    search = decodeURI(search);
+
+    console.log(search);
+    // 需要将得到的值中?切掉,并且得到key和key对应的值
+    // 截取开始到结束的值,不包含结束的值,slice,substring;slice 可以传负数,
+    search = search.slice(1);
+    // 把search的内容转换成对象,方便获取参数
+    // 地址栏参数格式key1=value1&key2=value2,所以先通过&分割成一个数组,然后再通过=分割
+    var arr = search.split('&');
+    var obj = {};
+    // 遍历这个数组,把数组每一项通过=分割成obj的键和值
+    for(var i = 0; i < arr.length;i++){
+      var k = arr[i].split('=')[0];
+      var v = arr[i].split('=')[1];
+      obj[k] = v;
+    }
+    return obj;
+  },
+  getParam:function(key){
+    return this.getParamObj()[key];
+  }
+}

@@ -1,7 +1,7 @@
 $(function(){
     // 需求
     // 1.获取搜索的历史记录,将其渲染到页面上
-    localStorage.setItem('search-history','["ls","zs","ww","zw","zw"]');
+    // localStorage.setItem('search-history','["ls","zs","ww","zw","zw"]');
     function getHistory(){
         var history = localStorage.getItem('search-history') || '[]';
         // 转换成数组返回
@@ -62,6 +62,23 @@ $(function(){
         // 获取历史记录
         var arr = getHistory();
         // 添加到历史记录的第一个
+        // 如果有重复就删除掉重复的
+        var index = arr.indexOf(key);
+        if(index != -1){
+            arr.splice(index,1);
+        }
+        // 如果长度>=10,删除最后一个
+        if(arr.length >= 10) {
+            arr.pop();
+        }
+        // 无论如何都要把数据添加到第一项
+        arr.unshift(key);
+        localStorage.setItem('search-history',JSON.stringify(arr));
+        // 重新渲染
+        render();
+        // 并且要让页面跳转到搜索结果页面,并且要把搜索内容传递过去
+        location.href = 'searchList.html?key='+key;
     });
+
 
 });
