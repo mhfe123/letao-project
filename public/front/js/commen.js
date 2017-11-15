@@ -22,7 +22,7 @@ var tools = {
     // 如果地址栏中有中文,需要对地址进行解码,decodeURI方法
     search = decodeURI(search);
 
-    console.log(search);
+
     // 需要将得到的值中?切掉,并且得到key和key对应的值
     // 截取开始到结束的值,不包含结束的值,slice,substring;slice 可以传负数,
     search = search.slice(1);
@@ -40,5 +40,12 @@ var tools = {
   },
   getParam:function(key){
     return this.getParamObj()[key];
+  },
+  // 检验用户是否登录
+  checkLogin:function(data){
+    if(data.error == 400){
+      // 跳转登录页面,并且要携带跳转过来的页面的地址,登录后再跳转回去
+      location.href = "login.html?retUrl=" + location.href; 
+    }
   }
 }

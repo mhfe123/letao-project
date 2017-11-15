@@ -29,6 +29,7 @@ $(function(){
             success:function(data){
                 console.log(data);
                 // 因为本地读取速度太快,制造人工延迟
+                $('.lt-product').html('<div class="loading"></div>');
                 setTimeout(function(){
                     var html = template('tmp',data);
                     $('.lt-product').html(html);
@@ -47,7 +48,7 @@ $(function(){
         }
         $('.lt-order a').removeClass('now').find('span').removeClass('fa-angle-up').addClass('fa-angle-down');
         // 渲染没完成之前添加一个加载的动画效果
-        $('.lt-product').html('<div class="loading"></div>');
+        // $('.lt-product').html('<div class="loading"></div>');
         // 重新渲染
         render();
     });
@@ -64,7 +65,7 @@ $(function(){
         // 排序之后重新渲染页面
 
          // 渲染没完成之前添加一个加载的动画效果
-         $('.lt-product').html('<div class="loading"></div>');
+        //  $('.lt-product').html('<div class="loading"></div>');
         render();
         
     });

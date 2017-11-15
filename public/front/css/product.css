@@ -30,9 +30,17 @@
     background-color: #f5f5f5;
     line-height: 30px;
 }
+.size span.now {
+    background-color: #069;
+    color: #fff;
+}
 .num {
     padding: 10px;
     border-top: 1px solid #ccc;
+}
+.num .num-text {
+    font-size: 12px;
+    color: #999;
 }
 .info {
     padding: 10px;
